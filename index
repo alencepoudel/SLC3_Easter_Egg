@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C3 Easter Egg Hunt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://img1.wsimg.com/isteam/ip/cab5ee88-19db-4cbd-940d-df840d631785/Sugar%20Land%20C3%20Logo%20-%20Color%20-%20Main.png/:/rs=w:1344,h:528,cg:true,m/cr=w:1344,h:528/qt=q:95" alt="Sugar Land C3 Logo">
+        <h1>C3 Easter Egg Hunt</h1>
+        <h2>Are you a true detective? Prove it!</h2>
+        <form id="quizForm">
+            <div>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="button" class="btn" id="startQuiz">Proceed to Challenge</button>
+        </form>
+        <form id="quizQuestions" style="display: none;">
+            <div class="question" data-answer="B">
+                <p><strong>Clue 1:</strong> The missing amount is $50,000. How could this much money appear within a year?</p>
+                <label><input type="radio" name="q1" value="A"> A wealthy donor gives it all at once.</label>
+                <label><input type="radio" name="q1" value="B"> A small daily effort from many people adds up.</label>
+                <label><input type="radio" name="q1" value="C"> We throw a big party and charge admission.</label>
+            </div>
+            <div class="question" data-answer="A">
+                <p><strong>Clue 2:</strong> The key lies in 50-50-50. What does this mean?</p>
+                <label><input type="radio" name="q2" value="A"> $50K goal, 50% participation, $0.50/day contributions.</label>
+                <label><input type="radio" name="q2" value="B"> Donate $50 every 50 days for 50 months.</label>
+                <label><input type="radio" name="q2" value="C"> 50% of employees join 50-minute fundraisers.</label>
+            </div>
+            <div class="question" data-answer="B">
+                <p><strong>Clue 3:</strong> Detectives found that 7.9% of employees currently participate. What does this reveal?</p>
+                <label><input type="radio" name="q3" value="A"> Most employees are already contributing.</label>
+                <label><input type="radio" name="q3" value="B"> There’s huge potential to involve more people.</label>
+                <label><input type="radio" name="q3" value="C"> Participation is too low to ever reach the goal.</label>
+            </div>
+            <div class="question" data-answer="B">
+                <p><strong>Clue 4:</strong> What does each $0.50/day donation contribute to the annual goal?</p>
+                <label><input type="radio" name="q4" value="A"> $182.50 per year per person.</label>
+                <label><input type="radio" name="q4" value="B"> $130 per year per person.</label>
+                <label><input type="radio" name="q4" value="C"> $500 per year per person.</label>
+            </div>
+            <div class="question" data-answer="C">
+                <p><strong>Clue 5:</strong> What is the easiest way to hit $50K?</p>
+                <label><input type="radio" name="q5" value="A"> Convince a few people to donate a lot.</label>
+                <label><input type="radio" name="q5" value="B"> Focus on raising money from outside the organization.</label>
+                <label><input type="radio" name="q5" value="C"> Encourage small contributions from many people.</label>
+            </div>
+            <div class="question" data-answer="A">
+                <p><strong>Final Clue:</strong> The detectives uncover the smallest daily donation that can significantly help meet the goal. What is it?</p>
+                <label><input type="radio" name="q6" value="A"> $0.50</label>
+                <label><input type="radio" name="q6" value="B"> $1.00</label>
+                <label><input type="radio" name="q6" value="C"> $1.50</label>
+                <label><input type="radio" name="q6" value="D"> $2.00</label>
+            </div>
+            <button type="button" class="btn" id="submitQuiz">Submit Quiz</button>
+        </form>
+        <div class="result" id="result" style="display: none;">
+            <h2>Your Score</h2>
+            <p id="score"></p>
+            <p>Please send a screenshot of your score to: Amber Rodarte, Lauren Colunga, or Alence Poudel via Teams or email it to <a href="mailto:slc3@sugarlandtx.gov">slc3@sugarlandtx.gov</a>.</p>
+            <p>The winner will be announced during the banquet and will receive a $50 gift card!</p>
+        </div>
+    </div>
+    <script>
+        const startQuizBtn = document.getElementById('startQuiz');
+        const quizForm = document.getElementById('quizForm');
+        const quizQuestions = document.getElementById('quizQuestions');
+        const submitQuizBtn = document.getElementById('submitQuiz');
+        const resultDiv = document.getElementById('result');
+        const scoreElement = document.getElementById('score');
+
+        startQuizBtn.addEventListener('click', () => {
+            quizForm.style.display = 'none';
+            quizQuestions.style.display = 'block';
+        });
+
+        submitQuizBtn.addEventListener('click', () => {
+            let score = 0;
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(question => {
+                const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer && selectedAnswer.value === question.dataset.answer) {
+                    score++;
+                }
+            });
+            quizQuestions.style.display = 'none';
+            resultDiv.style.display = 'block';
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            scoreElement.textContent = `Name: ${name}, Email: ${email}, Score: ${score}/6`;
+        });
+    </script>
+</body>
+</html>
