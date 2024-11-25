@@ -126,6 +126,7 @@
             <button type="button" class="btn" id="startQuiz">Proceed to Challenge</button>
         </form>
         <form id="quizQuestions" style="display: none;">
+            <h2>Quiz Questions</h2>
             <!-- Questions will go here (use the same logic from previous code) -->
             <button type="button" class="btn" id="submitQuiz">Submit Quiz</button>
         </form>
@@ -137,5 +138,32 @@
             <p class="winner">The winner will be announced during the banquet and will receive a $50 gift card!</p>
         </div>
     </div>
+
+    <script>
+        // Add functionality to switch from the intro form to quiz questions
+        const startQuizBtn = document.getElementById('startQuiz');
+        const quizForm = document.getElementById('quizForm');
+        const quizQuestions = document.getElementById('quizQuestions');
+        const resultDiv = document.getElementById('result');
+
+        startQuizBtn.addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please fill out your name and email to proceed.');
+                return;
+            }
+
+            quizForm.style.display = 'none'; // Hide the intro form
+            quizQuestions.style.display = 'block'; // Show quiz questions
+        });
+
+        // Placeholder for submit button functionality
+        document.getElementById('submitQuiz').addEventListener('click', () => {
+            quizQuestions.style.display = 'none'; // Hide quiz questions
+            resultDiv.style.display = 'block'; // Show results
+        });
+    </script>
 </body>
 </html>
