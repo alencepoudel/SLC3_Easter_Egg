@@ -184,48 +184,67 @@
         </div>
     </div>
 
-    <script>
-        const startQuizBtn = document.getElementById('startQuiz');
-        const quizForm = document.getElementById('quizForm');
-        const quizQuestions = document.getElementById('quizQuestions');
-        const submitQuizBtn = document.getElementById('submitQuiz');
-        const resultDiv = document.getElementById('result');
-        const scoreElement = document.getElementById('score');
-        const detailsElement = document.getElementById('details');
+   <script>
+    const startQuizBtn = document.getElementById('startQuiz');
+    const quizForm = document.getElementById('quizForm');
+    const quizQuestions = document.getElementById('quizQuestions');
+    const submitQuizBtn = document.getElementById('submitQuiz');
+    const resultDiv = document.getElementById('result');
+    const scoreElement = document.getElementById('score');
+    const detailsElement = document.getElementById('details');
+    const commentElement = document.createElement('p'); // Create a comment element
 
-        startQuizBtn.addEventListener('click', () => {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
+    resultDiv.appendChild(commentElement); // Add the comment element to the results section
 
-            if (!name || !email) {
-                alert('Please fill out your name and email to proceed.');
-                return;
-            }
+    startQuizBtn.addEventListener('click', () => {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
 
-            quizForm.style.display = 'none'; // Hide the form
-            quizQuestions.style.display = 'block'; // Show the quiz
-        });
-
-submitQuizBtn.addEventListener('click', () => {
-    let score = 0;
-    const questions = document.querySelectorAll('.question'); // Select all questions
-    questions.forEach(question => {
-        const selectedAnswer = question.querySelector('input[type="radio"]:checked');
-        if (selectedAnswer && selectedAnswer.value === question.dataset.answer) {
-            score++;
+        if (!name || !email) {
+            alert('Please fill out your name and email to proceed.');
+            return;
         }
+
+        quizForm.style.display = 'none'; // Hide the form
+        quizQuestions.style.display = 'block'; // Show the quiz
     });
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
+    submitQuizBtn.addEventListener('click', () => {
+        let score = 0;
+        const questions = document.querySelectorAll('.question'); // Select all questions
+        questions.forEach(question => {
+            const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+            if (selectedAnswer && selectedAnswer.value === question.dataset.answer) {
+                score++;
+            }
+        });
 
-    quizQuestions.style.display = 'none'; // Hide quiz questions
-    resultDiv.style.display = 'block'; // Show results
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
 
-    scoreElement.textContent = `${score}/${questions.length}`;
-    detailsElement.textContent = `Name: ${name}, Email: ${email}`;
-});
+        quizQuestions.style.display = 'none'; // Hide quiz questions
+        resultDiv.style.display = 'block'; // Show results
 
-    </script>
+        scoreElement.textContent = `${score}/${questions.length}`;
+        detailsElement.textContent = `Name: ${name}, Email: ${email}`;
+
+        // Add comment based on score
+        if (score === 6) {
+            commentElement.textContent = "Congratulations! You are a true detective!";
+            commentElement.style.color = "green";
+            commentElement.style.fontWeight = "bold";
+        } else if (score >= 4) {
+            commentElement.textContent = "Great job! You're almost there!";
+            commentElement.style.color = "orange";
+        } else if (score >= 2) {
+            commentElement.textContent = "Not bad! Keep practicing!";
+            commentElement.style.color = "red";
+        } else {
+            commentElement.textContent = "Better luck next time! Keep trying!";
+            commentElement.style.color = "darkred";
+        }
+    });
+</script>
+
 </body>
 </html>
