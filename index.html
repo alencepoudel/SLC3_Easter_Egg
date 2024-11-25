@@ -121,47 +121,60 @@
             </div>
             <button type="button" class="btn" id="startQuiz">Proceed to Challenge</button>
         </form>
-        <form id="quizQuestions" style="display: none;">
-            <h2>Quiz Questions</h2>
-            <div class="question" data-answer="B">
-                <p>Clue 1: The missing amount is $50,000. How could this much money appear within a year?</p>
-                <label><input type="radio" name="q1" value="A"> A wealthy donor gives it all at once.</label>
-                <label><input type="radio" name="q1" value="B"> A small daily effort from many people adds up.</label>
-                <label><input type="radio" name="q1" value="C"> We throw a big party and charge admission.</label>
-            </div>
-            <div class="question" data-answer="A">
-                <p>Clue 2: The key lies in 50-50-50. What does this mean?</p>
-                <label><input type="radio" name="q2" value="A"> $50K goal, 50% participation, $0.50/day contributions.</label>
-                <label><input type="radio" name="q2" value="B"> Donate $50 every 50 days for 50 months.</label>
-                <label><input type="radio" name="q2" value="C"> 50% of employees join 50-minute fundraisers.</label>
-            </div>
-            <div class="question" data-answer="B">
-                <p>Clue 3: Detectives found that 7.9% of employees currently participate. What does this reveal?</p>
-                <label><input type="radio" name="q3" value="A"> Most employees are already contributing.</label>
-                <label><input type="radio" name="q3" value="B"> There’s huge potential to involve more people.</label>
-                <label><input type="radio" name="q3" value="C"> Participation is too low to ever reach the goal.</label>
-            </div>
-             <div class="question" data-answer="B">
-                <p><strong>Clue 4:</strong> What does each $0.50/day donation contribute to the annual goal?</p>
-                <label><input type="radio" name="q4" value="A"> $182.50 per year per person.</label>
-                <label><input type="radio" name="q4" value="B"> $130 per year per person.</label>
-                <label><input type="radio" name="q4" value="C"> $500 per year per person.</label>
-            </div>
-            <div class="question" data-answer="C">
-                <p><strong>Clue 5:</strong> What is the easiest way to hit $50K?</p>
-                <label><input type="radio" name="q5" value="A"> Convince a few people to donate a lot.</label>
-                <label><input type="radio" name="q5" value="B"> Focus on raising money from outside the organization.</label>
-                <label><input type="radio" name="q5" value="C"> Encourage small contributions from many people.</label>
-            </div>
-            <div class="question" data-answer="A">
-                <p><strong>Final Clue:</strong> The detectives uncover the smallest daily donation that can significantly help meet the goal. What is it?</p>
-                <label><input type="radio" name="q6" value="A"> $0.50</label>
-                <label><input type="radio" name="q6" value="B"> $1.00</label>
-                <label><input type="radio" name="q6" value="C"> $1.50</label>
-                <label><input type="radio" name="q6" value="D"> $2.00</label>
-            </div>
-            <button type="button" class="btn" id="submitQuiz">Submit Quiz</button>
-        </form>
+<form id="quizQuestions" style="display: none;">
+     <h2>Quiz Questions</h2>
+
+    <!-- Question 1 -->
+    <div class="question" data-answer="B">
+        <p>Clue 1: The missing amount is $50,000. How could this much money appear within a year?</p>
+        <label><input type="radio" name="q1" value="A"> A wealthy donor gives it all at once.</label>
+        <label><input type="radio" name="q1" value="B"> A small daily effort from many people adds up.</label>
+        <label><input type="radio" name="q1" value="C"> We throw a big party and charge admission.</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question" data-answer="A">
+        <p>Clue 2: The key lies in 50-50-50. What does this mean?</p>
+        <label><input type="radio" name="q2" value="A"> $50K goal, 50% participation, $0.50/day contributions.</label>
+        <label><input type="radio" name="q2" value="B"> Donate $50 every 50 days for 50 months.</label>
+        <label><input type="radio" name="q2" value="C"> 50% of employees join 50-minute fundraisers.</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question" data-answer="B">
+        <p>Clue 3: Detectives found that 7.9% of employees currently participate. What does this reveal?</p>
+        <label><input type="radio" name="q3" value="A"> Most employees are already contributing.</label>
+        <label><input type="radio" name="q3" value="B"> There’s huge potential to involve more people.</label>
+        <label><input type="radio" name="q3" value="C"> Participation is too low to ever reach the goal.</label>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question" data-answer="B">
+        <p>Clue 4: What does each $0.50/day donation contribute to the annual goal?</p>
+        <label><input type="radio" name="q4" value="A"> $182.50 per year per person.</label>
+        <label><input type="radio" name="q4" value="B"> $130 per year per person.</label>
+        <label><input type="radio" name="q4" value="C"> $500 per year per person.</label>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question" data-answer="C">
+        <p>Clue 5: What is the easiest way to hit $50K?</p>
+        <label><input type="radio" name="q5" value="A"> Convince a few people to donate a lot.</label>
+        <label><input type="radio" name="q5" value="B"> Focus on raising money from outside the organization.</label>
+        <label><input type="radio" name="q5" value="C"> Encourage small contributions from many people.</label>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question" data-answer="A">
+        <p>Final Clue: The detectives uncover the smallest daily donation that can significantly help meet the goal. What is it?</p>
+        <label><input type="radio" name="q6" value="A"> $0.50</label>
+        <label><input type="radio" name="q6" value="B"> $1.00</label>
+        <label><input type="radio" name="q6" value="C"> $1.50</label>
+        <label><input type="radio" name="q6" value="D"> $2.00</label>
+    </div>
+
+    <button type="button" class="btn" id="submitQuiz">Submit Quiz</button>
+</form>
         <div class="result" id="result" style="display: none;">
             <h2>Your Score</h2>
             <p class="score" id="score"></p>
@@ -193,25 +206,26 @@
             quizQuestions.style.display = 'block'; // Show the quiz
         });
 
-        submitQuizBtn.addEventListener('click', () => {
-            let score = 0;
-            const questions = document.querySelectorAll('.question');
-            questions.forEach(question => {
-                const selectedAnswer = question.querySelector('input[type="radio"]:checked');
-                if (selectedAnswer && selectedAnswer.value === question.dataset.answer) {
-                    score++;
-                }
-            });
+submitQuizBtn.addEventListener('click', () => {
+    let score = 0;
+    const questions = document.querySelectorAll('.question'); // Select all questions
+    questions.forEach(question => {
+        const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+        if (selectedAnswer && selectedAnswer.value === question.dataset.answer) {
+            score++;
+        }
+    });
 
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
 
-            quizQuestions.style.display = 'none'; // Hide quiz questions
-            resultDiv.style.display = 'block'; // Show results
+    quizQuestions.style.display = 'none'; // Hide quiz questions
+    resultDiv.style.display = 'block'; // Show results
 
-            scoreElement.textContent = `${score}/${questions.length}`;
-            detailsElement.textContent = `Name: ${name}, Email: ${email}`;
-        });
+    scoreElement.textContent = `${score}/${questions.length}`;
+    detailsElement.textContent = `Name: ${name}, Email: ${email}`;
+});
+
     </script>
 </body>
 </html>
