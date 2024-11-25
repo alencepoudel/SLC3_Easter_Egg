@@ -184,7 +184,7 @@
         </div>
     </div>
 
-   <script>
+<script>
     const startQuizBtn = document.getElementById('startQuiz');
     const quizForm = document.getElementById('quizForm');
     const quizQuestions = document.getElementById('quizQuestions');
@@ -194,7 +194,8 @@
     const detailsElement = document.getElementById('details');
     const commentElement = document.createElement('p'); // Create a comment element
 
-    resultDiv.appendChild(commentElement); // Add the comment element to the results section
+    commentElement.className = "comment"; // Add a class for styling the comment
+    resultDiv.appendChild(commentElement); // Append the comment element to the result div
 
     startQuizBtn.addEventListener('click', () => {
         const name = document.getElementById('name').value.trim();
@@ -228,7 +229,7 @@
         scoreElement.textContent = `${score}/${questions.length}`;
         detailsElement.textContent = `Name: ${name}, Email: ${email}`;
 
-        // Add comment based on score
+        // Display comment based on the score
         if (score === 6) {
             commentElement.textContent = "Congratulations! You are a true detective!";
             commentElement.style.color = "green";
@@ -245,6 +246,7 @@
         }
     });
 </script>
+
 
 </body>
 </html>
