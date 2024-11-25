@@ -127,20 +127,39 @@
         </form>
         <form id="quizQuestions" style="display: none;">
             <h2>Quiz Questions</h2>
-            <p>Questions will appear here.</p>
+            <div class="question" data-answer="B">
+                <p><strong>Clue 1:</strong> The missing amount is $50,000. How could this much money appear within a year?</p>
+                <label><input type="radio" name="q1" value="A"> A wealthy donor gives it all at once.</label><br>
+                <label><input type="radio" name="q1" value="B"> A small daily effort from many people adds up.</label><br>
+                <label><input type="radio" name="q1" value="C"> We throw a big party and charge admission.</label>
+            </div>
+            <div class="question" data-answer="A">
+                <p><strong>Clue 2:</strong> The key lies in 50-50-50. What does this mean?</p>
+                <label><input type="radio" name="q2" value="A"> $50K goal, 50% participation, $0.50/day contributions.</label><br>
+                <label><input type="radio" name="q2" value="B"> Donate $50 every 50 days for 50 months.</label><br>
+                <label><input type="radio" name="q2" value="C"> 50% of employees join 50-minute fundraisers.</label>
+            </div>
             <button type="button" class="btn" id="submitQuiz">Submit Quiz</button>
         </form>
         <div class="result" id="result" style="display: none;">
             <h2>Your Score</h2>
-            <p class="score" id="score">3/6</p>
-            <p class="name-email" id="details">Name: Alence Poudel, Email: apoudel@sugarlandtx.gov</p>
+            <p class="score" id="score"></p>
+            <p class="name-email" id="details"></p>
             <p class="contact">Please send a screenshot of your score to: Amber Rodarte, Lauren Colunga, or Alence Poudel via Teams or email it to <a href="mailto:slc3@sugarlandtx.gov">slc3@sugarlandtx.gov</a>.</p>
             <p class="winner">The winner will be announced during the banquet and will receive a $50 gift card!</p>
         </div>
     </div>
 
     <script>
-        document.getElementById('startQuiz').addEventListener('click', function () {
+        const startQuizBtn = document.getElementById('startQuiz');
+        const quizForm = document.getElementById('quizForm');
+        const quizQuestions = document.getElementById('quizQuestions');
+        const submitQuizBtn = document.getElementById('submitQuiz');
+        const resultDiv = document.getElementById('result');
+        const scoreElement = document.getElementById('score');
+        const detailsElement = document.getElementById('details');
+
+        startQuizBtn.addEventListener('click', () => {
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
 
@@ -149,13 +168,28 @@
                 return;
             }
 
-            document.getElementById('quizForm').style.display = 'none'; // Hide the form
-            document.getElementById('quizQuestions').style.display = 'block'; // Show quiz questions
+            quizForm.style.display = 'none'; // Hide the form
+            quizQuestions.style.display = 'block'; // Show the quiz
         });
 
-        document.getElementById('submitQuiz').addEventListener('click', function () {
-            document.getElementById('quizQuestions').style.display = 'none'; // Hide quiz questions
-            document.getElementById('result').style.display = 'block'; // Show result
+        submitQuizBtn.addEventListener('click', () => {
+            let score = 0;
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(question => {
+                const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer && selectedAnswer.value === question.dataset.answer) {
+                    score++;
+                }
+            });
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            quizQuestions.style.display = 'none'; // Hide the quiz
+            resultDiv.style.display = 'block'; // Show the results
+
+            scoreElement.textContent = `${score}/${questions.length}`;
+            detailsElement.textContent = `Name: ${name}, Email: ${email}`;
         });
     </script>
 </body>
