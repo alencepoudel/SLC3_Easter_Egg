@@ -8,7 +8,7 @@
         body {
             font-family: 'Calibri Light', sans-serif;
             margin: 0;
-            background-color: #f9a01b;
+            background-color: #ffffff;
             color: #333;
         }
         .container {
@@ -127,7 +127,7 @@
         </form>
         <form id="quizQuestions" style="display: none;">
             <h2>Quiz Questions</h2>
-            <!-- Questions will go here (use the same logic from previous code) -->
+            <p>Questions will appear here.</p>
             <button type="button" class="btn" id="submitQuiz">Submit Quiz</button>
         </form>
         <div class="result" id="result" style="display: none;">
@@ -140,29 +140,22 @@
     </div>
 
     <script>
-        // Add functionality to switch from the intro form to quiz questions
-        const startQuizBtn = document.getElementById('startQuiz');
-        const quizForm = document.getElementById('quizForm');
-        const quizQuestions = document.getElementById('quizQuestions');
-        const resultDiv = document.getElementById('result');
-
-        startQuizBtn.addEventListener('click', () => {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+        document.getElementById('startQuiz').addEventListener('click', function () {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
 
             if (!name || !email) {
                 alert('Please fill out your name and email to proceed.');
                 return;
             }
 
-            quizForm.style.display = 'none'; // Hide the intro form
-            quizQuestions.style.display = 'block'; // Show quiz questions
+            document.getElementById('quizForm').style.display = 'none'; // Hide the form
+            document.getElementById('quizQuestions').style.display = 'block'; // Show quiz questions
         });
 
-        // Placeholder for submit button functionality
-        document.getElementById('submitQuiz').addEventListener('click', () => {
-            quizQuestions.style.display = 'none'; // Hide quiz questions
-            resultDiv.style.display = 'block'; // Show results
+        document.getElementById('submitQuiz').addEventListener('click', function () {
+            document.getElementById('quizQuestions').style.display = 'none'; // Hide quiz questions
+            document.getElementById('result').style.display = 'block'; // Show result
         });
     </script>
 </body>
