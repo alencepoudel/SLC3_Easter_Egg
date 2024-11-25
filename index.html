@@ -72,6 +72,10 @@
         .btn:hover {
             background-color: #0057a4;
         }
+        .question {
+            margin-bottom: 20px;
+            text-align: left;
+        }
         .result {
             text-align: center;
             margin-top: 20px;
@@ -139,6 +143,12 @@
                 <label><input type="radio" name="q2" value="B"> Donate $50 every 50 days for 50 months.</label><br>
                 <label><input type="radio" name="q2" value="C"> 50% of employees join 50-minute fundraisers.</label>
             </div>
+            <div class="question" data-answer="B">
+                <p><strong>Clue 3:</strong> Detectives found that 7.9% of employees currently participate. What does this reveal?</p>
+                <label><input type="radio" name="q3" value="A"> Most employees are already contributing.</label><br>
+                <label><input type="radio" name="q3" value="B"> There’s huge potential to involve more people.</label><br>
+                <label><input type="radio" name="q3" value="C"> Participation is too low to ever reach the goal.</label>
+            </div>
             <button type="button" class="btn" id="submitQuiz">Submit Quiz</button>
         </form>
         <div class="result" id="result" style="display: none;">
@@ -185,8 +195,8 @@
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
 
-            quizQuestions.style.display = 'none'; // Hide the quiz
-            resultDiv.style.display = 'block'; // Show the results
+            quizQuestions.style.display = 'none'; // Hide quiz questions
+            resultDiv.style.display = 'block'; // Show results
 
             scoreElement.textContent = `${score}/${questions.length}`;
             detailsElement.textContent = `Name: ${name}, Email: ${email}`;
